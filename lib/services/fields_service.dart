@@ -33,7 +33,7 @@ class FieldsService {
     //print (endpoint.toString());
 
     var response = await
-    http.post(endpoint, body:request.toJson(), headers: headers);
+    http.post(endpoint, body: jsonEncode(request.toJson()), headers: headers);
 
     if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, response.body);
@@ -75,7 +75,7 @@ class FieldsService {
     //print (endpoint.toString());
 
     var response = await
-    http.delete(endpoint, body:request.toJson(), headers: headers);
+    http.delete(endpoint, body: jsonEncode(request.toJson()), headers: headers);
 
     if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, response.body);
@@ -284,7 +284,7 @@ class FieldsService {
     Uri endpoint = Uri.https(
         baseUrl, "v1/fields/$fieldId?tableId=$tableId");
 
-    var response = await http.post(endpoint, body:request.toJson(), headers: headers);
+    var response = await http.post(endpoint, body: jsonEncode(request.toJson()), headers: headers);
 
     if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, response.body);

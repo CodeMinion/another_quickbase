@@ -31,33 +31,33 @@ class QuickBaseClient {
   late UserTokenService _userTokenService;
   late UserService _userService;
 
-  late final String appAuthorization;
+  late final String _appAuthorization;
   QuickBaseClient({required this.qBRealmHostname, required appToken}){
-    appAuthorization = "QB-USER-TOKEN $appToken";
+    _appAuthorization = "QB-USER-TOKEN $appToken";
   }
 
   /// Initializes the client
   Future<void> initialize() async {
     // TODO Initialize Services
-    _appsService = AppsService(qBRealmHostname: qBRealmHostname, baseUrl: _url, appAuthorization: appAuthorization);
+    _appsService = AppsService(qBRealmHostname: qBRealmHostname, baseUrl: _url, appAuthorization: _appAuthorization);
 
-    _authService = AuthService(qBRealmHostname: qBRealmHostname, baseUrl: _url, qBAppToken: appAuthorization);
+    _authService = AuthService(qBRealmHostname: qBRealmHostname, baseUrl: _url, qBAppToken: _appAuthorization);
 
-    _fieldsService = FieldsService(qBRealmHostname: qBRealmHostname, baseUrl: _url, appAuthorization: appAuthorization);
+    _fieldsService = FieldsService(qBRealmHostname: qBRealmHostname, baseUrl: _url, appAuthorization: _appAuthorization);
 
-    _fileService = FileService(qBRealmHostname: qBRealmHostname, baseUrl: _url, appAuthorization: appAuthorization);
+    _fileService = FileService(qBRealmHostname: qBRealmHostname, baseUrl: _url, appAuthorization: _appAuthorization);
 
-    _formulaService = FormulaService(qBRealmHostname: qBRealmHostname, baseUrl: _url, appAuthorization: appAuthorization);
+    _formulaService = FormulaService(qBRealmHostname: qBRealmHostname, baseUrl: _url, appAuthorization: _appAuthorization);
 
-    _recordsService = RecordsService(qBRealmHostname: qBRealmHostname, baseUrl: _url, appAuthorization: appAuthorization);
+    _recordsService = RecordsService(qBRealmHostname: qBRealmHostname, baseUrl: _url, appAuthorization: _appAuthorization);
 
-    _reportsService = ReportsService(qBRealmHostname: qBRealmHostname, baseUrl: _url, appAuthorization: appAuthorization);
+    _reportsService = ReportsService(qBRealmHostname: qBRealmHostname, baseUrl: _url, appAuthorization: _appAuthorization);
 
-    _tablesService = TablesService(qBRealmHostname: qBRealmHostname, baseUrl: _url, appAuthorization: appAuthorization);
+    _tablesService = TablesService(qBRealmHostname: qBRealmHostname, baseUrl: _url, appAuthorization: _appAuthorization);
 
-    _userTokenService = UserTokenService(qBRealmHostname: qBRealmHostname, baseUrl: _url, appAuthorization: appAuthorization);
+    _userTokenService = UserTokenService(qBRealmHostname: qBRealmHostname, baseUrl: _url, appAuthorization: _appAuthorization);
 
-    _userService = UserService(qBRealmHostname: qBRealmHostname, baseUrl: _url, appAuthorization: appAuthorization);
+    _userService = UserService(qBRealmHostname: qBRealmHostname, baseUrl: _url, appAuthorization: _appAuthorization);
 
   }
 

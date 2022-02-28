@@ -976,11 +976,11 @@ class RecordsDeleteRequest {
 @JsonSerializable(includeIfNull: false)
 class RecordsQueryRequest {
 
-  RecordsQueryOptions? options = null;
+  RecordsQueryOptions? options;
   /* The filter, using the Quickbase query language,
   which determines the records to return. If this parameter
   is omitted, the query will return all records. */
-  String? where = null;
+  String? where;
   /* An array that contains the fields to group the records by. */
   List<RecordsQueryGroupBy>? groupBy = [];
   /* By default, queries will be sorted by the given sort fields or the

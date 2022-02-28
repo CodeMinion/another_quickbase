@@ -34,7 +34,7 @@ class TablesService {
     //print (endpoint.toString());
 
     var response = await
-    http.post(endpoint, body: request.toJson(), headers: headers);
+    http.post(endpoint, body: jsonEncode(request.toJson()), headers: headers);
 
     if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, response.body);
@@ -72,7 +72,7 @@ class TablesService {
     //print (endpoint.toString());
 
     var response = await
-    http.post(endpoint, body: request.toJson(), headers: headers);
+    http.post(endpoint, body: jsonEncode(request.toJson()), headers: headers);
 
     if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, response.body);
@@ -278,7 +278,7 @@ class TablesService {
     //print (endpoint.toString());
 
     var response = await
-    http.post(endpoint, body: request.toJson(),  headers: headers);
+    http.post(endpoint, body: jsonEncode(request.toJson()),  headers: headers);
 
     if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, response.body);
@@ -321,7 +321,7 @@ class TablesService {
     //print (endpoint.toString());
 
     var response = await
-    http.post(endpoint, body: request.toJson(), headers: headers);
+    http.post(endpoint, body: jsonEncode(request.toJson()), headers: headers);
 
     if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, response.body);

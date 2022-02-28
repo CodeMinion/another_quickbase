@@ -22,7 +22,7 @@ class UserTokenService {
 
 
     Map<String, String> headers = {
-      "Authorization": authorization ?? appAuthorization,
+      "Authorization": authorization,
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json',
       "QB-Realm-Hostname": qBRealmHostname,
@@ -36,7 +36,7 @@ class UserTokenService {
     //print (endpoint.toString());
 
     var response = await
-    http.post(endpoint, body: request.toJson(), headers: headers);
+    http.post(endpoint, body: jsonEncode(request.toJson()), headers: headers);
 
     if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, response.body);
@@ -66,7 +66,7 @@ class UserTokenService {
     }
 
     Map<String, String> headers = {
-      "Authorization": authorization ?? appAuthorization,
+      "Authorization": authorization,
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json',
       "QB-Realm-Hostname": qBRealmHostname,
@@ -103,7 +103,7 @@ class UserTokenService {
       { required String authorization, String? userAgent }) async {
 
     Map<String, String> headers = {
-      "Authorization": authorization ?? appAuthorization,
+      "Authorization": authorization,
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json',
       "QB-Realm-Hostname": qBRealmHostname,
