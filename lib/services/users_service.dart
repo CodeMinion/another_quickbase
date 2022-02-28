@@ -34,11 +34,9 @@ class UserService {
       throw ApiException(response.statusCode, response.body);
     }
     else if (response.statusCode == 200) {
-      print (jsonDecode(response.body));
       return DenyUsersResponse.fromJson(jsonDecode(response.body));
     }
     else {
-      print (response.body);
       throw ApiException(response.statusCode, response.body);
     }
   }
@@ -73,11 +71,9 @@ class UserService {
       throw ApiException(response.statusCode, response.body);
     }
     else if (response.statusCode == 200) {
-      print (jsonDecode(response.body));
       return DenyUsersResponse.fromJson(jsonDecode(response.body));
     }
     else {
-      print (response.body);
       throw ApiException(response.statusCode, response.body);
     }
   }

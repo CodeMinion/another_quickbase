@@ -41,11 +41,9 @@ class AuthService {
       throw ApiException(response.statusCode, response.body);
     }
     else if (response.statusCode == 200) {
-      print (jsonDecode(response.body));
       return jsonDecode(response.body)["temporaryAuthorization"];
     }
     else {
-      print (response.body);
       throw ApiException(response.statusCode, response.body);
     }
   }

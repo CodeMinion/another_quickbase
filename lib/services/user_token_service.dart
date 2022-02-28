@@ -42,11 +42,9 @@ class UserTokenService {
       throw ApiException(response.statusCode, response.body);
     }
     else if (response.statusCode == 200) {
-      print (jsonDecode(response.body));
       return UserTokenResponse.fromJson(jsonDecode(response.body));
     }
     else {
-      print (response.body);
       throw ApiException(response.statusCode, response.body);
     }
   }
@@ -60,10 +58,6 @@ class UserTokenService {
   Future<int> deactivateUserToken({
     required String authorization, String? userAgent }) async {
 
-    // verify required params are set
-    if(authorization == null) {
-      throw ApiException(400, "Missing required param: authorization");
-    }
 
     Map<String, String> headers = {
       "Authorization": authorization,
@@ -86,11 +80,9 @@ class UserTokenService {
       throw ApiException(response.statusCode, response.body);
     }
     else if (response.statusCode == 200) {
-      print (jsonDecode(response.body));
       return jsonDecode(response.body)["id"];
     }
     else {
-      print (response.body);
       throw ApiException(response.statusCode, response.body);
     }
   }
@@ -121,11 +113,9 @@ class UserTokenService {
       throw ApiException(response.statusCode, response.body);
     }
     else if (response.statusCode == 200) {
-      print (jsonDecode(response.body));
       return jsonDecode(response.body)["id"];
     }
     else {
-      print (response.body);
       throw ApiException(response.statusCode, response.body);
     }
 

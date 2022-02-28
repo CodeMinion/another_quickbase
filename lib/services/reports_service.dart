@@ -39,11 +39,9 @@ class ReportsService {
       throw ApiException(response.statusCode, response.body);
     }
     else if (response.statusCode == 200) {
-      print (jsonDecode(response.body));
       return ReportResponse.fromJson(jsonDecode(response.body));
     }
     else {
-      print (response.body);
       throw ApiException(response.statusCode, response.body);
     }
   }
@@ -79,11 +77,9 @@ class ReportsService {
       throw ApiException(response.statusCode, response.body);
     }
     else if (response.statusCode == 200) {
-      print (jsonDecode(response.body));
       return (jsonDecode(response.body) as List).map((e) => ReportResponse.fromJson(e)).toList();
     }
     else {
-      print (response.body);
       throw ApiException(response.statusCode, response.body);
     }
   }
@@ -125,11 +121,9 @@ class ReportsService {
       throw ApiException(response.statusCode, response.body);
     }
     else if (response.statusCode == 200) {
-      print (jsonDecode(response.body));
       return RunReportResponse.fromJson(jsonDecode(response.body));
     }
     else {
-      print (response.body);
       throw ApiException(response.statusCode, response.body);
     }
   }

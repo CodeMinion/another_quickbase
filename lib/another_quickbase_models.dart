@@ -568,31 +568,31 @@ class FieldsUsageField {
 @JsonSerializable(includeIfNull: false)
 class FieldsUsageUsage {
 
-  FieldsusageUsageDefaultReports? defaultReports = null;
+  FieldsusageUsageDefaultReports? defaultReports;
 
-  FieldsusageUsageNotifications? notifications = null;
+  FieldsusageUsageNotifications? notifications;
 
-  FieldsusageUsageReminders? reminders = null;
+  FieldsusageUsageReminders? reminders;
 
-  FieldsusageUsageForms? forms = null;
+  FieldsusageUsageForms? forms;
 
-  FieldsusageUsageActions? actions = null;
+  FieldsusageUsageActions? actions;
 
-  FieldsusageUsagePersonalReports? personalReports = null;
+  FieldsusageUsagePersonalReports? personalReports;
 
-  FieldsusageUsageRoles? roles = null;
+  FieldsusageUsageRoles? roles;
 
-  FieldsusageUsageReports? reports = null;
+  FieldsusageUsageReports? reports;
 
-  FieldsusageUsageFields? fields = null;
+  FieldsusageUsageFields? fields;
 
-  FieldsusageUsageRelationships? relationships = null;
+  FieldsusageUsageRelationships? relationships;
 
-  FieldsusageUsageWebhooks? webhooks = null;
+  FieldsusageUsageWebhooks? webhooks;
 
-  FieldsusageUsageAppHomePages? appHomePages = null;
+  FieldsusageUsageAppHomePages? appHomePages;
 
-  FieldsusageUsageExactForms? exactForms = null;
+  FieldsusageUsageExactForms? exactForms;
 
   FieldsUsageUsage({
     this.reminders, this.actions, this.appHomePages, this.defaultReports,
@@ -1044,7 +1044,7 @@ class RecordsQueryGroupBy {
   int? fieldId;
   /* Group by based on ascending order (ASC),
   descending order (DESC) or equal values (equal-values) */
-  String? grouping = null;
+  String? grouping;
   //enum groupingEnum {  ASC,  DESC,  equal-values,  };
 
   RecordsQueryGroupBy({
@@ -1167,9 +1167,9 @@ class RecordsUpsertRequest {
   String to;
   /* Record data array, where each record contains key-value
   mappings of fields to be defined/updated and their values. */
-  List<Map<String,dynamic>>? data = null;
+  List<Map<String,dynamic>>? data;
   /* The merge field id. */
-  int? mergeFieldId = null;
+  int? mergeFieldId;
   /* Specify an array of field ids that will return data
   for any updates or added record. Record ID (FID 3) is always
   returned if any field ID is requested. */

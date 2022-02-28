@@ -38,11 +38,9 @@ class AppsService {
       throw ApiException(response.statusCode, response.body);
     }
     else if (response.statusCode == 200) {
-      print (jsonDecode(response.body));
       return AppResponse.fromJson(jsonDecode(response.body));
     }
     else {
-      print (response.body);
       throw ApiException(response.statusCode, response.body);
     }
   }
@@ -80,11 +78,9 @@ class AppsService {
       throw ApiException(response.statusCode, response.body);
     }
     else if (response.statusCode == 200) {
-      print (jsonDecode(response.body));
       return AppResponse.fromJson(jsonDecode(response.body));
     }
     else {
-      print (response.body);
       throw ApiException(response.statusCode, response.body);
     }
   }
@@ -121,11 +117,9 @@ class AppsService {
       throw ApiException(response.statusCode, response.body);
     }
     else if (response.statusCode == 200) {
-      print (jsonDecode(response.body));
       return jsonDecode(response.body)["deletedAppId"];
     }
     else {
-      print (response.body);
       throw ApiException(response.statusCode, response.body);
     }
   }
@@ -161,11 +155,9 @@ class AppsService {
       throw ApiException(response.statusCode, response.body);
     }
     else if (response.statusCode == 200) {
-      print (jsonDecode(response.body));
       return AppResponse.fromJson(jsonDecode(response.body));
     }
     else {
-      print (response.body);
       throw ApiException(response.statusCode, response.body);
     }
   }
@@ -205,12 +197,10 @@ class AppsService {
       throw ApiException(response.statusCode, response.body);
     }
     else if (response.statusCode == 200) {
-      print(jsonDecode(response.body));
       return (jsonDecode(response.body) as List).map((e) =>
           AppEvent.fromJson(e)).toList();
     }
     else {
-      print(response.body);
       throw ApiException(response.statusCode, response.body);
     }
   }
@@ -247,11 +237,9 @@ class AppsService {
       throw ApiException(response.statusCode, response.body);
     }
     else if (response.statusCode == 200) {
-      print (jsonDecode(response.body));
       return AppResponse.fromJson(jsonDecode(response.body));
     }
     else {
-      print (response.body);
       throw ApiException(response.statusCode, response.body);
     }
   }

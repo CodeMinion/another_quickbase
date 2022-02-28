@@ -40,11 +40,9 @@ class TablesService {
       throw ApiException(response.statusCode, response.body);
     }
     else if (response.statusCode == 200) {
-      print (jsonDecode(response.body));
       return TableRelationshipResponse.fromJson(jsonDecode(response.body));
     }
     else {
-      print (response.body);
       throw ApiException(response.statusCode, response.body);
     }
 
@@ -78,11 +76,9 @@ class TablesService {
       throw ApiException(response.statusCode, response.body);
     }
     else if (response.statusCode == 200) {
-      print (jsonDecode(response.body));
       return TableResponse.fromJson(jsonDecode(response.body));
     }
     else {
-      print (response.body);
       throw ApiException(response.statusCode, response.body);
     }
   }
@@ -118,11 +114,9 @@ class TablesService {
       throw ApiException(response.statusCode, response.body);
     }
     else if (response.statusCode == 200) {
-      print (jsonDecode(response.body));
       return jsonDecode(response.body)["deletedTableId"];
     }
     else {
-      print (response.body);
       throw ApiException(response.statusCode, response.body);
     }
   }
@@ -157,11 +151,9 @@ class TablesService {
       throw ApiException(response.statusCode, response.body);
     }
     else if (response.statusCode == 200) {
-      print (jsonDecode(response.body));
       return (jsonDecode(response.body) as List).map((e) => TableResponse.fromJson(e)).toList();
     }
     else {
-      print (response.body);
       throw ApiException(response.statusCode, response.body);
     }
   }
@@ -205,11 +197,9 @@ class TablesService {
       throw ApiException(response.statusCode, response.body);
     }
     else if (response.statusCode == 200) {
-      print (jsonDecode(response.body));
       return RelationShipListResponse.fromJson(jsonDecode(response.body));
     }
     else {
-      print (response.body);
       throw ApiException(response.statusCode, response.body);
     }
   }
@@ -245,11 +235,9 @@ class TablesService {
       throw ApiException(response.statusCode, response.body);
     }
     else if (response.statusCode == 200) {
-      print (jsonDecode(response.body));
       return TableResponse.fromJson(jsonDecode(response.body));
     }
     else {
-      print (response.body);
       throw ApiException(response.statusCode, response.body);
     }
   }
@@ -284,11 +272,9 @@ class TablesService {
       throw ApiException(response.statusCode, response.body);
     }
     else if (response.statusCode == 200) {
-      print (jsonDecode(response.body));
       return TableRelationshipResponse.fromJson(jsonDecode(response.body));
     }
     else {
-      print (response.body);
       throw ApiException(response.statusCode, response.body);
     }
   }
@@ -327,11 +313,9 @@ class TablesService {
       throw ApiException(response.statusCode, response.body);
     }
     else if (response.statusCode == 200) {
-      print (jsonDecode(response.body));
       return TableResponse.fromJson(jsonDecode(response.body));
     }
     else {
-      print (response.body);
       throw ApiException(response.statusCode, response.body);
     }
   }

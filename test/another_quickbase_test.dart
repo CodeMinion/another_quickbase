@@ -32,7 +32,7 @@ void main() {
       from: contactTable.id!
     ));
 
-    expect(contactTable, isNotNull);
+    expect(contacts, isNotNull);
 
   });
 }
