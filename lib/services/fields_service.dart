@@ -1,16 +1,12 @@
-
-import 'dart:convert';
-
-import 'package:another_quickbase/another_quickbase_models.dart';
-import 'package:another_quickbase/api_exception.dart';
-import 'package:http/http.dart' as http;
+part of '../another_quickbase.dart';
 
 class FieldsService {
 
   final String qBRealmHostname;
   final String baseUrl;
+  final String appAuthorization;
 
-  FieldsService({required this.qBRealmHostname, required this.baseUrl});
+  FieldsService({required this.qBRealmHostname, required this.baseUrl, required this.appAuthorization});
 
   /// Create a field
   ///
@@ -21,20 +17,9 @@ class FieldsService {
     required String? tableId, required FieldsUpsertRequest request,
     String? authorization,  String? userAgent }) async {
 
-    // verify required params are set
-    if(qBRealmHostname == null) {
-      throw new ApiException(400, "Missing required param: qBRealmHostname");
-    }
-    if(authorization == null) {
-      throw new ApiException(400, "Missing required param: authorization");
-    }
-    if(tableId == null) {
-      throw new ApiException(400, "Missing required param: tableId");
-    }
-
 
     Map<String, String> headers = {
-      "Authorization": authorization ?? "",
+      "Authorization": authorization ?? appAuthorization,
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json',
       "QB-Realm-Hostname": qBRealmHostname,
@@ -76,7 +61,7 @@ class FieldsService {
     String? userAgent }) async {
 
     Map<String, String> headers = {
-      "Authorization": authorization ?? "",
+      "Authorization": authorization ?? appAuthorization,
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json',
       "QB-Realm-Hostname": qBRealmHostname,
@@ -124,13 +109,9 @@ class FieldsService {
         bool? includeFieldPerms, String? userAgent }
       ) async {
 
-    // verify required params are set
-    if(authorization == null) {
-      throw new ApiException(400, "Missing required param: authorization");
-    }
 
     Map<String, String> headers = {
-      "Authorization": authorization ?? "",
+      "Authorization": authorization ?? appAuthorization,
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json',
       "QB-Realm-Hostname": qBRealmHostname,
@@ -173,12 +154,8 @@ class FieldsService {
         required String tableId,
     String? authorization, String? userAgent }) async {
 
-    if(authorization == null) {
-      throw ApiException(400, "Missing required param: authorization");
-    }
-
     Map<String, String> headers = {
-      "Authorization": authorization ?? "",
+      "Authorization": authorization ?? appAuthorization,
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json',
       "QB-Realm-Hostname": qBRealmHostname,
@@ -213,12 +190,8 @@ class FieldsService {
     String? authorization,
     bool? includeFieldPerms, String? userAgent }) async {
 
-    if(authorization == null) {
-      throw ApiException(400, "Missing required param: authorization");
-    }
-
     Map<String, String> headers = {
-      "Authorization": authorization ?? "",
+      "Authorization": authorization ?? appAuthorization,
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json',
       "QB-Realm-Hostname": qBRealmHostname,
@@ -261,14 +234,8 @@ class FieldsService {
       { required String tableId, String? authorization,
         GetFieldUsagesRequest? request, String? userAgent }) async {
 
-
-    // verify required params are set
-    if(authorization == null) {
-      throw ApiException(400, "Missing required param: authorization");
-    }
-
     Map<String, String> headers = {
-      "Authorization": authorization ?? "",
+      "Authorization": authorization ?? appAuthorization,
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json',
       "QB-Realm-Hostname": qBRealmHostname,
@@ -306,12 +273,8 @@ class FieldsService {
         required String tableId, required int fieldId,
         required FieldsUpsertRequest request, String? authorization, String? userAgent }) async {
 
-    if(authorization == null) {
-      throw ApiException(400, "Missing required param: authorization");
-    }
-
     Map<String, String> headers = {
-      "Authorization": authorization ?? "",
+      "Authorization": authorization ?? appAuthorization,
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json',
       "QB-Realm-Hostname": qBRealmHostname,
@@ -335,6 +298,5 @@ class FieldsService {
       throw ApiException(response.statusCode, response.body);
     }
   }
-
 
 }

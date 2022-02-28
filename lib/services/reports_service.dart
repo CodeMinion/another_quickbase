@@ -1,16 +1,13 @@
-
-import 'dart:convert';
-
-import 'package:another_quickbase/another_quickbase_models.dart';
-import 'package:another_quickbase/api_exception.dart';
-import 'package:http/http.dart' as http;
+part of '../another_quickbase.dart';
 
 class ReportsService {
 
   final String qBRealmHostname;
   final String baseUrl;
+  final String appAuthorization;
 
-  ReportsService({required this.qBRealmHostname, required this.baseUrl});
+
+  ReportsService({required this.qBRealmHostname, required this.baseUrl, required this.appAuthorization});
 
 
 
@@ -22,13 +19,9 @@ class ReportsService {
       required String reportId, required String tableId,
       String? authorization, String? userAgent }) async {
 
-    // verify required params are set
-    if(authorization == null) {
-      throw ApiException(400, "Missing required param: authorization");
-    }
 
     Map<String, String> headers = {
-      "Authorization": authorization ?? "",
+      "Authorization": authorization ?? appAuthorization,
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json',
       "QB-Realm-Hostname": qBRealmHostname,
@@ -67,13 +60,8 @@ class ReportsService {
       }) async {
 
 
-    // verify required params are set
-    if(authorization == null) {
-      throw ApiException(400, "Missing required param: authorization");
-    }
-
     Map<String, String> headers = {
-      "Authorization": authorization ?? "",
+      "Authorization": authorization ?? appAuthorization,
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json',
       "QB-Realm-Hostname": qBRealmHostname,
@@ -118,15 +106,8 @@ class ReportsService {
     String? authorization,
     String? userAgent}) async {
 
-    // verify required params are set
-
-    if(authorization == null) {
-      throw new ApiException(400, "Missing required param: authorization");
-    }
-
-
     Map<String, String> headers = {
-      "Authorization": authorization ?? "",
+      "Authorization": authorization ?? appAuthorization,
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json',
       "QB-Realm-Hostname": qBRealmHostname,

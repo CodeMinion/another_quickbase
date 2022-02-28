@@ -1,16 +1,13 @@
+part of '../another_quickbase.dart';
 
-import 'dart:convert';
-
-import 'package:another_quickbase/another_quickbase_models.dart';
-import 'package:another_quickbase/api_exception.dart';
-import 'package:http/http.dart' as http;
 
 class UserTokenService {
 
   final String qBRealmHostname;
   final String baseUrl;
+  final String appAuthorization;
 
-  UserTokenService({required this.qBRealmHostname, required this.baseUrl});
+  UserTokenService({required this.qBRealmHostname, required this.baseUrl, required this.appAuthorization});
 
   /// Clone a user token
   ///
@@ -24,13 +21,8 @@ class UserTokenService {
     String? userAgent }) async {
 
 
-    // verify required params are set
-    if(authorization == null) {
-      throw new ApiException(400, "Missing required param: authorization");
-    }
-
     Map<String, String> headers = {
-      "Authorization": authorization ?? "",
+      "Authorization": authorization ?? appAuthorization,
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json',
       "QB-Realm-Hostname": qBRealmHostname,
@@ -74,7 +66,7 @@ class UserTokenService {
     }
 
     Map<String, String> headers = {
-      "Authorization": authorization ?? "",
+      "Authorization": authorization ?? appAuthorization,
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json',
       "QB-Realm-Hostname": qBRealmHostname,
@@ -111,7 +103,7 @@ class UserTokenService {
       { required String authorization, String? userAgent }) async {
 
     Map<String, String> headers = {
-      "Authorization": authorization ?? "",
+      "Authorization": authorization ?? appAuthorization,
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json',
       "QB-Realm-Hostname": qBRealmHostname,

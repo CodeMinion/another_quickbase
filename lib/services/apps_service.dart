@@ -1,16 +1,12 @@
-
-import 'dart:convert';
-
-import 'package:another_quickbase/another_quickbase_models.dart';
-import 'package:another_quickbase/api_exception.dart';
-import 'package:http/http.dart' as http;
+part of '../another_quickbase.dart';
 
 class AppsService {
 
   final String qBRealmHostname;
   final String baseUrl;
+  final String appAuthorization;
 
-  AppsService({required this.qBRealmHostname, required this.baseUrl});
+  AppsService({required this.qBRealmHostname, required this.baseUrl, required this.appAuthorization});
 
   /// Copy an app
   ///
@@ -22,14 +18,8 @@ class AppsService {
         required AppIdCopyRequest request,
         String? userAgent, String? authorization}) async {
 
-    // verify required params are set
-    if (authorization == null) {
-      throw ApiException(400, "Missing required param: authorization");
-    }
-
-
     Map<String, String> headers = {
-      "Authorization": authorization ?? "",
+      "Authorization": authorization ?? appAuthorization,
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json',
       "QB-Realm-Hostname": qBRealmHostname,
@@ -69,13 +59,9 @@ class AppsService {
         String? userAgent, String? authorization
       }) async {
 
-    // verify required params are set
-    if (authorization == null) {
-      throw ApiException(400, "Missing required param: authorization");
-    }
 
     Map<String, String> headers = {
-      "Authorization": authorization ?? "",
+      "Authorization": authorization ?? appAuthorization,
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json',
       "QB-Realm-Hostname": qBRealmHostname,
@@ -113,13 +99,9 @@ class AppsService {
     String? authorization,
     String? userAgent}) async {
 
-    // verify required params are set
-    if (authorization == null) {
-      throw new ApiException(400, "Missing required param: authorization");
-    }
 
     Map<String, String> headers = {
-      "Authorization": authorization ?? "",
+      "Authorization": authorization ?? appAuthorization,
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json',
       "QB-Realm-Hostname": qBRealmHostname,
@@ -157,14 +139,9 @@ class AppsService {
     required String appId, String? authorization, String? userAgent
   }) async {
 
-    // verify required params are set
-
-    if (authorization == null) {
-      throw new ApiException(400, "Missing required param: authorization");
-    }
 
     Map<String, String> headers = {
-      "Authorization": "${authorization ?? ""}",
+      "Authorization": authorization ?? appAuthorization,
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json',
       "QB-Realm-Hostname": qBRealmHostname,
@@ -204,13 +181,9 @@ class AppsService {
     required String appId,
     String? authorization,
         String? userAgent}) async {
-    // verify required params are set
-    if (authorization == null) {
-      throw new ApiException(400, "Missing required param: authorization");
-    }
 
     Map<String, String> headers = {
-      "Authorization": authorization ?? "",
+      "Authorization": authorization ?? appAuthorization,
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json',
       "QB-Realm-Hostname": qBRealmHostname,
@@ -252,14 +225,9 @@ class AppsService {
     required String appId, String? authorization,
     required AppUpsertRequest request, String? userAgent}) async {
 
-    // verify required params are set
-    if (authorization == null) {
-      throw new ApiException(400, "Missing required param: authorization");
-    }
-
 
     Map<String, String> headers = {
-      "Authorization": authorization ?? "",
+      "Authorization": authorization ?? appAuthorization,
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json',
       "QB-Realm-Hostname": qBRealmHostname,

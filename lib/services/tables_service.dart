@@ -1,16 +1,12 @@
-
-import 'dart:convert';
-
-import 'package:another_quickbase/another_quickbase_models.dart';
-import 'package:another_quickbase/api_exception.dart';
-import 'package:http/http.dart' as http;
+part of '../another_quickbase.dart';
 
 class TablesService {
 
   final String qBRealmHostname;
   final String baseUrl;
+  final String appAuthorization;
 
-  TablesService({required this.qBRealmHostname, required this.baseUrl});
+  TablesService({required this.qBRealmHostname, required this.baseUrl, required this.appAuthorization});
 
 
   /// Create a relationship
@@ -23,12 +19,8 @@ class TablesService {
     required String tableId, required TableIdRelationshipRequest request,
     String? authorization, String? userAgent }) async {
 
-    if(authorization == null) {
-      throw ApiException(400, "Missing required param: authorization");
-    }
-
     Map<String, String> headers = {
-      "Authorization": authorization ?? "",
+      "Authorization": authorization ?? appAuthorization,
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json',
       "QB-Realm-Hostname": qBRealmHostname,
@@ -65,13 +57,8 @@ class TablesService {
     required String appId,
     required TablesUpsertRequest request, String? authorization, String? userAgent }) async {
 
-    // verify required params are set
-    if(authorization == null) {
-      throw ApiException(400, "Missing required param: authorization");
-    }
-
     Map<String, String> headers = {
-      "Authorization": authorization ?? "",
+      "Authorization": authorization ?? appAuthorization,
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json',
       "QB-Realm-Hostname": qBRealmHostname,
@@ -110,13 +97,8 @@ class TablesService {
     String? authorization, String? userAgent }) async {
 
 
-    // verify required params are set
-    if(authorization == null) {
-      throw ApiException(400, "Missing required param: authorization");
-    }
-
     Map<String, String> headers = {
-      "Authorization": authorization ?? "",
+      "Authorization": authorization ?? appAuthorization,
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json',
       "QB-Realm-Hostname": qBRealmHostname,
@@ -154,13 +136,8 @@ class TablesService {
   Future<List<TableResponse>> getAppTables({
       required String appId, String? authorization,  String? userAgent }) async {
 
-    // verify required params are set
-    if(authorization == null) {
-      throw ApiException(400, "Missing required param: authorization");
-    }
-
     Map<String, String> headers = {
-      "Authorization": authorization ?? "",
+      "Authorization": authorization ?? appAuthorization,
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json',
       "QB-Realm-Hostname": qBRealmHostname,
@@ -200,13 +177,9 @@ class TablesService {
   Future<RelationShipListResponse> getRelationships({
     required String tableId, String? authorization, int? skip, String? userAgent }) async {
 
-    // verify required params are set
-    if(authorization == null) {
-      throw ApiException(400, "Missing required param: authorization");
-    }
 
     Map<String, String> headers = {
-      "Authorization": authorization ?? "",
+      "Authorization": authorization ?? appAuthorization,
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json',
       "QB-Realm-Hostname": qBRealmHostname,
@@ -251,14 +224,8 @@ class TablesService {
     String? authorization, String? userAgent
   }) async {
 
-
-    // verify required params are set
-    if(authorization == null) {
-      throw ApiException(400, "Missing required param: authorization");
-    }
-
     Map<String, String> headers = {
-      "Authorization": authorization ?? "",
+      "Authorization": authorization ?? appAuthorization,
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json',
       "QB-Realm-Hostname": qBRealmHostname,
@@ -293,15 +260,11 @@ class TablesService {
   Future<TableRelationshipResponse> updateRelationship({
       required String tableId,
     required int relationshipId,
-    required TableIdRelationshipRequest request, String? authorization,  String? userAgent }) async {
-
-    // verify required params are set
-    if(authorization == null) {
-      throw ApiException(400, "Missing required param: authorization");
-    }
+    required TableIdRelationshipRequest request,
+    String? authorization,  String? userAgent }) async {
 
     Map<String, String> headers = {
-      "Authorization": authorization ?? "",
+      "Authorization": authorization ?? appAuthorization,
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json',
       "QB-Realm-Hostname": qBRealmHostname,
@@ -343,13 +306,8 @@ class TablesService {
     String? authorization,  String? userAgent }) async {
 
 
-    // verify required params are set
-    if(authorization == null) {
-      throw ApiException(400, "Missing required param: authorization");
-    }
-
     Map<String, String> headers = {
-      "Authorization": authorization ?? "",
+      "Authorization": authorization ?? appAuthorization,
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json',
       "QB-Realm-Hostname": qBRealmHostname,

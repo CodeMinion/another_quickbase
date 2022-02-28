@@ -1,16 +1,12 @@
-
-import 'dart:convert';
-
-import 'package:another_quickbase/another_quickbase_models.dart';
-import 'package:another_quickbase/api_exception.dart';
-import 'package:http/http.dart' as http;
+part of '../another_quickbase.dart';
 
 class UserService {
 
   final String qBRealmHostname;
   final String baseUrl;
+  final String appAuthorization;
 
-  UserService({required this.qBRealmHostname, required this.baseUrl});
+  UserService({required this.qBRealmHostname, required this.baseUrl, required this.appAuthorization});
 
   /// Deny users
   ///
@@ -19,13 +15,8 @@ class UserService {
   Future<DenyUsersResponse> denyUsers(
       {required List<String> userIds, String? authorization, String? userAgent }) async {
 
-    // verify required params are set
-    if(authorization == null) {
-      throw ApiException(400, "Missing required param: authorization");
-    }
-
     Map<String, String> headers = {
-      "Authorization": authorization ?? "",
+      "Authorization": authorization ?? appAuthorization,
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json',
       "QB-Realm-Hostname": qBRealmHostname,
@@ -63,13 +54,8 @@ class UserService {
       String? authorization,
      String? userAgent }) async {
 
-    // verify required params are set
-    if(authorization == null) {
-      throw ApiException(400, "Missing required param: authorization");
-    }
-
     Map<String, String> headers = {
-      "Authorization": authorization ?? "",
+      "Authorization": authorization ?? appAuthorization,
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json',
       "QB-Realm-Hostname": qBRealmHostname,

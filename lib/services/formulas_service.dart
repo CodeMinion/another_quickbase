@@ -1,16 +1,14 @@
+part of '../another_quickbase.dart';
 
-import 'dart:convert';
-
-import 'package:another_quickbase/another_quickbase_models.dart';
-import 'package:another_quickbase/api_exception.dart';
-import 'package:http/http.dart' as http;
 
 class FormulaService {
 
   final String qBRealmHostname;
   final String baseUrl;
+  final String appAuthorization;
 
-  FormulaService({required this.qBRealmHostname, required this.baseUrl});
+
+  FormulaService({required this.qBRealmHostname, required this.baseUrl, required this.appAuthorization});
 
 
   /// Run a formula
@@ -22,15 +20,9 @@ class FormulaService {
   Future<String> runFormula({
     required FormulaRunRequest body,
     String? authorization, String? userAgent }) async {
-    Object postBody = body;
-
-    // verify required params are set
-    if(authorization == null) {
-      throw new ApiException(400, "Missing required param: authorization");
-    }
 
     Map<String, String> headers = {
-      "Authorization": authorization ?? "",
+      "Authorization": authorization ?? appAuthorization,
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json',
       "QB-Realm-Hostname": qBRealmHostname,
