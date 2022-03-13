@@ -233,7 +233,7 @@ class FieldsService {
     };
 
     Uri endpoint = Uri.https(
-        baseUrl, "v1/fields/usage?tableId=$tableId", request?.toJson());
+        baseUrl, "v1/fields/usage?tableId=$tableId", request?.toJson().toQueryParam());
 
     var response = await http.get(endpoint, headers: headers);
 

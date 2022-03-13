@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:another_quickbase/another_quickbase_models.dart';
 import 'package:another_quickbase/api_exception.dart';
+import 'package:another_quickbase/services/backend_extensions.dart';
 import 'package:http/http.dart' as http;
 
 part 'services/apps_service.dart';

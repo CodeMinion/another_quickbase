@@ -112,7 +112,7 @@ class ReportsService {
     };
 
     Uri endpoint = Uri.https(
-        baseUrl, "v1/reports/$reportId/run", request.toJson());
+        baseUrl, "v1/reports/$reportId/run", request.toJson().toQueryParam());
 
     var response = await
     http.post(endpoint, headers: headers);
