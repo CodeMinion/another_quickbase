@@ -1224,7 +1224,7 @@ class RecordUpsertMetadata {
 
   final List<int>? updatedRecordIds;
 
-  final List<int>? totalNumberOfRecordsProcessed;
+  final int? totalNumberOfRecordsProcessed;
 
   RecordUpsertMetadata({
     this.createdRecordIds, this.lineErrors, this.totalNumberOfRecordsProcessed,

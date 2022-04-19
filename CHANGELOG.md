@@ -9,3 +9,7 @@
 ## 0.0.3
 
 * Fixed query params.
+
+## 0.0.4 
+
+* Fixed parsing of record in RecordUpsertMetadata.

@@ -1198,9 +1198,7 @@ RecordUpsertMetadata _$RecordUpsertMetadataFromJson(
           .toList(),
       lineErrors: json['lineErrors'] as Map<String, dynamic>?,
       totalNumberOfRecordsProcessed:
-          (json['totalNumberOfRecordsProcessed'] as List<dynamic>?)
-              ?.map((e) => e as int)
-              .toList(),
+          json['totalNumberOfRecordsProcessed'] as int?,
       unchangedRecordIds: (json['unchangedRecordIds'] as List<dynamic>?)
           ?.map((e) => e as int)
           .toList(),

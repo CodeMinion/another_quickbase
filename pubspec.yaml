@@ -1,6 +1,6 @@
 name: another_quickbase
 description: A flutter API for Quickbase. Exposes the Quickbase REST APIs
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/CodeMinion/another_quickbase
 
 environment:
